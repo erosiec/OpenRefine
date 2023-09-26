@@ -33,6 +33,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 package com.google.refine.importers;
 
+import static io.github.pixee.security.XMLInputFactorySecurity.hardenFactory;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -345,7 +346,7 @@ public class XmlImporter extends TreeImportingParserBase {
     }
 
     final static private XMLStreamReader createXMLStreamReader(InputStream inputStream) throws XMLStreamException, IOException {
-        XMLInputFactory factory = XMLInputFactory.newInstance();
+        XMLInputFactory factory = hardenFactory(XMLInputFactory.newInstance());
         factory.setProperty(XMLInputFactory.IS_COALESCING, true);
         factory.setProperty(XMLInputFactory.IS_REPLACING_ENTITY_REFERENCES, true);
         factory.setProperty(XMLInputFactory.SUPPORT_DTD, false);
