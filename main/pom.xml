@@ -18,7 +18,8 @@
     <jee.path>/</jee.path>
     <jee.port>3333</jee.port>
     <refine.data>/tmp/refine</refine.data>
-  </properties>
+  <versions.java-security-toolkit>1.0.7</versions.java-security-toolkit>
+ </properties>
 
   <scm>
     <connection>scm:git:http://github.com/OpenRefine/OpenRefine</connection>
@@ -410,6 +411,18 @@
       <version>${log4j.version}</version>
       <scope>test</scope>
     </dependency>
-
+  <dependency>
+   <groupId>io.github.pixee</groupId>
+   <artifactId>java-security-toolkit</artifactId>
+  </dependency>
+ </dependencies>
+ <dependencyManagement>
+  <dependencies>
+   <dependency>
+    <groupId>io.github.pixee</groupId>
+    <artifactId>java-security-toolkit</artifactId>
+    <version>${versions.java-security-toolkit}</version>
+   </dependency>
   </dependencies>
+ </dependencyManagement>
 </project>
